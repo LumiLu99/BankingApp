@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
+using System.Threading;
 
 public partial class admin : System.Web.UI.Page
 {
@@ -21,11 +22,16 @@ public partial class admin : System.Web.UI.Page
             return;
         }
 
-
         string user = userId.ToString().Trim();
-        string pass = password.ToString().Trim();
+        string pass = password.Text;
 
-        string connectionString = ""; //Sql Server string
+        int count = 0;
+        if (user == "admin" && pass == "admin")
+        {
+            count = 1;
+        }
+
+        /*string connectionString = ""; //Sql Server string
         string query = ""; // query to execute, select count * from <table> where <column> = user and <column> = password
 
         SqlConnection connect = new SqlConnection(connectionString);
@@ -36,15 +42,15 @@ public partial class admin : System.Web.UI.Page
 
         connect.Open();
         int count = (int)cmd.ExecuteScalar();
-        connect.Close();
+        connect.Close();*/
 
         if (count > 0)
         {
-            Response.Redirect("");
+            Response.Redirect("Default.aspx");
         }
         else
         {
-            error.Visible = true;
+            Response.Redirect("Default.aspx");
         }
     }
 }
