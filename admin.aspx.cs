@@ -32,7 +32,7 @@ public partial class admin : System.Web.UI.Page
 
         if (count > 0)
         {
-            Response.Redirect("Default.aspx"); //need change the page
+            Response.Redirect("adminHome.aspx"); //need change the page
         }
         else
         {
