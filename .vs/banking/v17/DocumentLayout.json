@@ -1,0 +1,70 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Administrator\\source\\repos\\BankingApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|c:\\users\\administrator\\source\\repos\\bankingapp\\admin.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|solutionrelative:admin.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|c:\\users\\administrator\\source\\repos\\bankingapp\\admin.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|solutionrelative:admin.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 91,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "admin.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\BankingApp\\admin.aspx.cs",
+              "RelativeDocumentMoniker": "admin.aspx.cs",
+              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\BankingApp\\admin.aspx.cs",
+              "RelativeToolTip": "admin.aspx.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAQwB4AAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-29T03:38:02.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "admin.aspx",
+              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\BankingApp\\admin.aspx",
+              "RelativeDocumentMoniker": "admin.aspx",
+              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\BankingApp\\admin.aspx",
+              "RelativeToolTip": "admin.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-06-29T03:06:57.531Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
