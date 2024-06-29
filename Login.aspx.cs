@@ -10,7 +10,15 @@ using System.Configuration;
 
 public partial class Login : System.Web.UI.Page
 {
-    protected void Btnlogin_Click(object sender, EventArgs e)
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
+            lblUserError.Text = ""; // Clear error message on initial page load
+        }
+    }
+    protected void loginBtn_Click(object sender, EventArgs e)
     {
         string username = txtUser.Text.Trim();
         string password = txtPassword.Text;
@@ -59,5 +67,7 @@ public partial class Login : System.Web.UI.Page
             }
         }
     }
+ 
 }
+
 
