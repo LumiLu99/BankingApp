@@ -36,14 +36,15 @@
                         <div class="mb-3">
                             <label class="form-label">User ID:</label>
                             <asp:TextBox ID="userId" CssClass="form-control" runat="server"></asp:TextBox>
-                            <asp:Label ID="userEmpty" runat="server" Text="User ID required!" Visible="false"></asp:Label>
+                            <asp:RequiredFieldValidator ID="userEmpty" runat="server" ErrorMessage="User ID required!" CssClass="text-danger" ControlToValidate="userId"></asp:RequiredFieldValidator>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Password:</label>
                             <asp:TextBox ID="password" CssClass="form-control" TextMode="Password" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="passEmpty" runat="server" ErrorMessage="Password required!" CssClass="text-danger" ControlToValidate="password"></asp:RequiredFieldValidator>
                         </div>
                         <asp:Button ID="Submit" CssClass="btn btn-primary w-100" runat="server" Text="Login" OnClick="Submit_Click" />
-                        <asp:Label ID="error" runat="server" Text="Invalid Username or Password" Visible="false"></asp:Label>
+                        <asp:Label ID="error" runat="server" Text="Invalid Username or Password" Visible="false" CssClass="text-danger"></asp:Label>
                     </form>
                 </div>
             </div>
