@@ -7,17 +7,15 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
+using Microsoft.Ajax.Utilities;
 
 public partial class Login : System.Web.UI.Page
 {
+    private string sql;
+    private SqlCommand sqlCmd;
+    private SqlConnection hookUp;
+    private SqlDataReader reader;
 
-    protected void Page_Load(object sender, EventArgs e)
-    {
-        if (!IsPostBack)
-        {
-            lblUserError.Text = ""; // Clear error message on initial page load
-        }
-    }
     protected void loginBtn_Click(object sender, EventArgs e)
     {
         string username = txtUser.Text.Trim();
@@ -35,39 +33,47 @@ public partial class Login : System.Web.UI.Page
             txtPassword.Text = "";
         }
     }
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
+            lblUserError.Text = ""; // Clear error message on initial page load
+        }
+    }
 
     private bool ValidateUser(string username, string password)
     {
-        string connectionString = ConfigurationManager.ConnectionStrings["YourConnectionStringName"].ConnectionString;
-
-        using (SqlConnection connection = new SqlConnection(connectionString))
+        hookUp = new SqlConnection("Server=LAPTOP-11MN0H02\\SQLEXPRESS;Database=BankingApp;Integrated Security=True");
+        sql = "SELECT customerUsername, customerPassword FROM dbo.customerDetails WHERE customerUsername = @username AND customerPassword = @password";
+        sqlCmd = new SqlCommand(sql, hookUp);
+        sqlCmd.Parameters.AddWithValue("@username", username);
+        sqlCmd.Parameters.AddWithValue("@password", password);
+        hookUp.Open();
+        reader = sqlCmd.ExecuteReader();
+        if (reader.HasRows && reader.Read())
         {
-            string sql = "SELECT COUNT(*) FROM Users WHERE Username = @Username AND Password = @Password";
-            SqlCommand command = new SqlCommand(sql, connection);
-            command.Parameters.AddWithValue("@Username", username);
-            command.Parameters.AddWithValue("@Password", password);
+            string retrievedUsername = reader["customerUsername"].ToString();
+            string retrievedPassword = reader["customerPassword"].ToString();
 
-            try
+            if (retrievedUsername != username || retrievedPassword != password)
             {
-                connection.Open();
-                int count = (int)command.ExecuteScalar(); // Executes the query and returns the first column of the first row in the result set
-
-                if (count > 0)
-                {
-                    return true; // User credentials are valid
-                }
-                else
-                {
-                    return false; // User credentials are not valid
-                }
+                reader.Close();
+                hookUp.Close();
+                return false;
             }
-            catch (Exception ex)
+            else
             {
-                throw new Exception("An error occurred while validating user credentials.", ex);
+                reader.Close();
+                hookUp.Close();
+                return true;
             }
         }
+        else
+        {
+            reader.Close();
+            hookUp.Close();
+            return false;
+        }
     }
- 
+
 }
-
-
