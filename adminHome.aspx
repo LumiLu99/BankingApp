@@ -43,9 +43,9 @@
             <!-- User Management Section -->
             <div class="col">
                 <div class="user-list">
-                    <h2>User Management</h2>
+                    <h2 class="my-5">User Management</h2>
                     <form runat="server" id="form1">
-                        <asp:Button ID="register" runat="server" class="btn btn-primary" Text="+Add New User" OnClick="registerUser"/>
+                        <asp:Button ID="register" runat="server" class="btn btn-primary mb-3" Text="+Add New User" OnClick="registerUser"/>
                         <asp:GridView ID="userTable" runat="server" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" class="table-bordered table">
                             <Columns>
                                 <asp:BoundField DataField="id" HeaderText="ID" />
