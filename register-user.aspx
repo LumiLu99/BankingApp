@@ -64,7 +64,7 @@
                     <div class="mb-3 row">
                         <asp:Label runat="server" ID="emailLabel" class="col-sm-2 col-form-label">Email:</asp:Label>
                         <div class="col-sm-8">
-                            <asp:TextBox runat="server" ID="TextBox2" class="form-control" TextMode="Email"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="email" class="form-control" TextMode="Email"></asp:TextBox>
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -84,7 +84,12 @@
                     </div>
                     <div class="mb-3 row">
                         <div class="col-sm-8 offset-sm-2">
-                        <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary" style="margin-right: 10px" Text="Save" /><asp:Button ID="Button2" CssClass="btn btn-danger" runat="server" Text="Back" OnClick="Button2_Click" />
+                            <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary" Style="margin-right: 10px" Text="Save" OnClick="Button1_Click" /><asp:Button ID="Button2" CssClass="btn btn-danger" runat="server" Text="Back" OnClick="Button2_Click" />
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <div class="col-sm-8 offset-sm-2">
+                            <asp:Label runat="server" ID="uploadStatus" ForeColor="#33CC33"></asp:Label>
                         </div>
                     </div>
                 </form>

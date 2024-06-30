@@ -61,4 +61,32 @@ public partial class register_user : System.Web.UI.Page
     {
         Response.Redirect("~/adminHome.aspx");
     }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        int block = status.Checked ? 1 : 0;
+
+        string query = "INSERT INTO [Table] (accountNo, firstName, lastName, status, password, email) VALUES (@accountNo, @firstName, @lastName, @status, @password, @email)";
+        SqlConnection con = new SqlConnection(connectionString);
+        SqlCommand cmd = new SqlCommand(query, con);
+
+        cmd.Parameters.AddWithValue("@accountNo", accountNo.Text);
+        cmd.Parameters.AddWithValue("@firstName", firstName.Text);
+        cmd.Parameters.AddWithValue("@lastName", lastName.Text);
+        cmd.Parameters.AddWithValue("@status", block);
+        cmd.Parameters.AddWithValue("@password", password.Text);
+        cmd.Parameters.AddWithValue("@email", email.Text);
+
+        con.Open() ;
+        cmd.ExecuteNonQuery();
+        con.Close() ;
+
+        firstName.ReadOnly = true;
+        lastName.ReadOnly = true;
+        email.ReadOnly = true;
+        password.ReadOnly = true;
+
+        uploadStatus.Text = "Done Register!";
+        
+    }
 }
