@@ -36,4 +36,32 @@ public partial class adminHome : System.Web.UI.Page
     {
         Response.Redirect("register-user.aspx");
     }
+
+    protected void searchButton_Click(object sender, EventArgs e)
+    {
+        searchUser();
+    }
+    protected void textchange(object sender, System.Web.UI.WebControls.GridViewPageEventArgs e)
+    {
+        userTable.PageIndex = e.NewPageIndex;
+    }
+    private void searchUser()
+    {
+        string searchtxt = search.Text.Trim();
+
+        string query = "SELECT * FROM [Table] WHERE firstName LIKE @search OR lastName LIKE @search OR accountNo LIKE @search OR email LIKE @search";
+        SqlConnection con = new SqlConnection(connectionString);
+        SqlCommand cmd = new SqlCommand(query, con);
+        SqlDataAdapter data = new SqlDataAdapter(cmd);
+        DataTable dt = new DataTable();
+
+        cmd.Parameters.AddWithValue("@search", "%" + searchtxt + "%");
+        con.Open();
+        data.Fill(dt);
+        con.Close();
+
+        userTable.DataSource = dt;
+        userTable.DataBind();
+    }
+
 }

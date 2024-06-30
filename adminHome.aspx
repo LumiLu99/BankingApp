@@ -45,8 +45,20 @@
                 <div class="user-list">
                     <h2 class="my-5">User Management</h2>
                     <form runat="server" id="form1">
-                        <asp:Button ID="register" runat="server" class="btn btn-primary mb-3" Text="+Add New User" OnClick="registerUser"/>
-                        <asp:GridView ID="userTable" runat="server" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" class="table-bordered table">
+                        <div class="row">
+                            <div class="col">
+                                <asp:Button ID="register" runat="server" class="btn btn-primary mb-3" Text="+Add New User" OnClick="registerUser" />
+                            </div>
+                            <div class="col-sm-6">
+                                <asp:Panel runat="server" ID="pnl" DefaultButton="searchButton">
+                                    <div class="input-group mb-3">
+                                        <asp:TextBox runat="server" ID="search" class="form-control"></asp:TextBox>
+                                        <asp:Button runat="server" ID="searchButton" class="btn btn-outline-secondary" Text="Search" OnClick="searchButton_Click" />
+                                    </div>
+                                </asp:Panel>
+                            </div>
+                        </div>
+                        <asp:GridView ID="userTable" runat="server" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" class="table-bordered table" OnPageIndexChanging="textchange" EmptyDataText="No User Found">
                             <Columns>
                                 <asp:BoundField DataField="id" HeaderText="ID" />
                                 <asp:BoundField DataField="accountNo" HeaderText="Account No." />
@@ -59,8 +71,8 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
+                            <PagerSettings Mode="NextPrevious" position="Bottom" PageButtonCount="10"/>
                             <PagerStyle CssClass="pagination" />
-                            <PagerSettings Mode="NumericFirstLast" />
                         </asp:GridView>
                     </form>
                 </div>
