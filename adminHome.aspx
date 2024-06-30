@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -41,61 +41,27 @@
     <div class="container">
         <div class="row">
             <!-- User Management Section -->
-            <div class="col-md-8">
+            <div class="col">
                 <div class="user-list">
                     <h2>User Management</h2>
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>John Doe</td>
-                                <td>john.doe@example.com</td>
-                                <td>
-                                    <button class="btn btn-primary">Edit</button>
-                                    <button class="btn btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Jane Smith</td>
-                                <td>jane.smith@example.com</td>
-                                <td>
-                                    <button class="btn btn-primary">Edit</button>
-                                    <button class="btn btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                            <!-- Add more rows dynamically -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Add User Form Section -->
-            <div class="col-md-4">
-                <div class="add-user-form">
-                    <h2>Add User</h2>
-                    <form>
-                        <div class="form-group">
-                            <label for="username">Username:</label>
-                            <input type="text" class="form-control" id="username" name="username" />
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input type="email" class="form-control" id="email" name="email" />
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password:</label>
-                            <input type="password" class="form-control" id="password" name="password" />
-                        </div>
-                        <button type="submit" class="btn btn-success">Add User</button>
+                    <form runat="server" id="form1">
+                        <asp:Button ID="register" runat="server" class="btn btn-primary" Text="+Add New User" OnClick="registerUser"/>
+                        <asp:GridView ID="userTable" runat="server" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" class="table-bordered table">
+                            <Columns>
+                                <asp:BoundField DataField="id" HeaderText="ID" />
+                                <asp:BoundField DataField="accountNo" HeaderText="Account No." />
+                                <asp:BoundField DataField="firstName" HeaderText="First Name" />
+                                <asp:BoundField DataField="lastName" HeaderText="Last Name" />
+                                <asp:BoundField DataField="status" HeaderText="Status" />
+                                <asp:TemplateField HeaderText="Action">
+                                    <ItemTemplate>
+                                        <asp:Button ID="userEdit" runat="server" Text="Edit" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                            <PagerStyle CssClass="pagination" />
+                            <PagerSettings Mode="NumericFirstLast" />
+                        </asp:GridView>
                     </form>
                 </div>
             </div>
