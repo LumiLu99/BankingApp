@@ -53,21 +53,24 @@
                         <asp:Label runat="server" ID="firstNameLabel" class="col-sm-2 col-form-label">First Name:</asp:Label>
                         <div class="col-sm-8">
                             <asp:TextBox runat="server" ID="firstName" class="form-control"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ForeColor="Red" ErrorMessage="First Name required!" ControlToValidate="firstName"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <asp:Label runat="server" ID="lastNameLabel" class="col-sm-2 col-form-label">Last Name:</asp:Label>
                         <div class="col-sm-8">
                             <asp:TextBox runat="server" ID="lastName" class="form-control"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ForeColor="Red" ErrorMessage="Last Name required!" ControlToValidate="lastName"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <asp:Label runat="server" ID="emailLabel" class="col-sm-2 col-form-label">Email:</asp:Label>
                         <div class="col-sm-8">
                             <asp:TextBox runat="server" ID="email" class="form-control" TextMode="Email"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ForeColor="Red" ErrorMessage="Email required!" ControlToValidate="email"></asp:RequiredFieldValidator>
                         </div>
                     </div>
-                    <div class="mb-3 row">
+                    <!--<div class="mb-3 row">
                         <asp:Label runat="server" ID="passwordLabel" class="col-sm-2 col-form-label">Password:</asp:Label>
                         <div class="col-sm-7">
                             <asp:TextBox runat="server" ID="password" class="form-control" TextMode="Password"></asp:TextBox>
@@ -81,15 +84,15 @@
                         <div class="col-sm-8">
                             <asp:CheckBox ID="status" runat="server" />
                         </div>
-                    </div>
+                    </div>-->
                     <div class="mb-3 row">
                         <div class="col-sm-8 offset-sm-2">
-                            <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary" Style="margin-right: 10px" Text="Save" OnClick="Button1_Click" /><asp:Button ID="Button2" CssClass="btn btn-danger" runat="server" Text="Back" OnClick="Button2_Click" />
+                            <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary" Style="margin-right: 10px" Text="Save" OnClick="Button1_Click" /><asp:Button ID="Button2" CssClass="btn btn-danger" runat="server" CausesValidation="false" Text="Back" OnClick="Button2_Click" />
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <div class="col-sm-8 offset-sm-2">
-                            <asp:Label runat="server" ID="uploadStatus" ForeColor="#33CC33"></asp:Label>
+                            <asp:Label runat="server" ID="uploadStatus" ForeColor="#33CC33"></asp:Label>    
                         </div>
                     </div>
                 </form>
