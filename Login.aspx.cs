@@ -18,8 +18,7 @@ public partial class Login : System.Web.UI.Page
 
     protected void loginBtn_Click(object sender, EventArgs e)
     {
-        string username = txtUser.Text.Trim();
-        string password = txtPassword.Text;
+
         bool isValid = ValidateUser(txtUser.Text, txtPassword.Text);
 
         if (isValid)
@@ -44,7 +43,7 @@ public partial class Login : System.Web.UI.Page
     private bool ValidateUser(string username, string password)
     {
         hookUp = new SqlConnection("Server=LAPTOP-11MN0H02\\SQLEXPRESS;Database=BankingApp;Integrated Security=True");
-        sql = "SELECT customerUsername, customerPassword FROM dbo.customerDetails WHERE customerUsername = @username AND customerPassword = @password";
+        sql = "SELECT customerName, customerUsername, customerPassword, customerBalance FROM dbo.customerDetails WHERE customerUsername = @username AND customerPassword = @password";
         sqlCmd = new SqlCommand(sql, hookUp);
         sqlCmd.Parameters.AddWithValue("@username", username);
         sqlCmd.Parameters.AddWithValue("@password", password);
@@ -54,6 +53,8 @@ public partial class Login : System.Web.UI.Page
         {
             string retrievedUsername = reader["customerUsername"].ToString();
             string retrievedPassword = reader["customerPassword"].ToString();
+            string retrievedName = reader["customerName"].ToString();
+            decimal retrievedBalance = Convert.ToDecimal(reader["customerBalance"]);
 
             if (retrievedUsername != username || retrievedPassword != password)
             {
@@ -63,6 +64,8 @@ public partial class Login : System.Web.UI.Page
             }
             else
             {
+                Session["CustomerName"] = retrievedName;
+                Session["CustomerBalance"] = retrievedBalance;
                 reader.Close();
                 hookUp.Close();
                 return true;

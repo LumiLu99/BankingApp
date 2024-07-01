@@ -9,6 +9,11 @@ public partial class Home : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        string customerName = (string)Session["CustomerName"];
+        decimal customerBalance = (decimal)Session["CustomerBalance"];
+
+        lblName.Text = customerName;
+        lblBalance.Text = customerBalance.ToString();
 
     }
 }
