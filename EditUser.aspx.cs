@@ -71,4 +71,19 @@ public partial class EditUser : System.Web.UI.Page
     {
         Response.Redirect("adminHome.aspx");
     }
+
+    protected void resetPassword_Click(object sender, EventArgs e)
+    {
+        int userID = Convert.ToInt32(Session["EditUser"]);
+
+        string query = "UPDATE [Table] SET password = @password WHERE Id = @id";
+        SqlConnection con = new SqlConnection(connectionString);
+        SqlCommand cmd = new SqlCommand(query, con);
+        cmd.Parameters.AddWithValue("@id", userID);
+        cmd.Parameters.AddWithValue("@password", DBNull.Value);
+
+        con.Open();
+        cmd.ExecuteNonQuery();
+        con.Close();
+    }
 }

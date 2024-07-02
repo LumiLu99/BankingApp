@@ -73,7 +73,7 @@
                     <div class="mb-3 row">
                         <asp:Label runat="server" ID="passwordLabel" class="col-sm-2 col-form-label">Password:</asp:Label>
                          <div class="col-sm-1">
-                            <asp:Button runat="server" ID="resetPassword" CssClass="btn btn-danger" Text="Reset" />
+                            <asp:Button runat="server" ID="resetPassword" CssClass="btn btn-danger" Text="Reset" OnClick="resetPassword_Click" />
                         </div>
                     </div>
                     <div class="mb-3 row align-items-center">
