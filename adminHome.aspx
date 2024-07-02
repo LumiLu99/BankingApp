@@ -40,7 +40,6 @@
     </nav>
     <div class="container">
         <div class="row">
-            <!-- User Management Section -->
             <div class="col">
                 <div class="user-list">
                     <h2 class="my-5">User Management</h2>
