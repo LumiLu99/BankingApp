@@ -58,7 +58,7 @@
                                 </asp:Panel>
                             </div>
                         </div>
-                        <asp:GridView ID="userTable" runat="server" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" class="table-bordered table" OnPageIndexChanging="textchange" EmptyDataText="No User Found">
+                        <asp:GridView ID="userTable" runat="server" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" class="table-bordered table" OnPageIndexChanging="textchange" EmptyDataText="No User Found" DataKeyNames="id">
                             <Columns>
                                 <asp:BoundField DataField="id" HeaderText="ID" />
                                 <asp:BoundField DataField="accountNo" HeaderText="Account No." />
@@ -67,7 +67,7 @@
                                 <asp:BoundField DataField="status" HeaderText="Status" />
                                 <asp:TemplateField HeaderText="Action">
                                     <ItemTemplate>
-                                        <asp:Button ID="userEdit" runat="server" Text="Edit" />
+                                        <asp:Button ID="userEdit" runat="server" Text="Edit"  CommandArgument='<%# Container.DataItemIndex %>' OnClick="editButton"/>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>

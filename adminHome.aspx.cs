@@ -63,5 +63,14 @@ public partial class adminHome : System.Web.UI.Page
         userTable.DataSource = dt;
         userTable.DataBind();
     }
+    protected void editButton(object sender, EventArgs e)
+    {
+        Button userEdit = (Button)sender;
+        GridViewRow row = (GridViewRow)userEdit.NamingContainer;
+        int rowIndex = row.RowIndex;
+        int id = Convert.ToInt32(userTable.DataKeys[rowIndex]["id"]);
 
+        Session["EditUser"] = id;
+        Response.Redirect("EditUser.aspx");
+    }
 }
