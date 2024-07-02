@@ -20,26 +20,23 @@ public partial class EditUser : System.Web.UI.Page
 
                 string query = "SELECT Id, accountNo, firstName, lastName, status, username, email FROM [Table] WHERE Id = @UserID";
 
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                SqlConnection connection = new SqlConnection(connectionString);
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@UserID", userID);
+                
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
                 {
-                    SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@UserID", userID);
-                    connection.Open();
-
-                    SqlDataReader reader = command.ExecuteReader();
-                    if (reader.Read())
-                    {
-                        // Populate controls with user data for editing
-                        accountNo.Text = reader["accountNo"].ToString();
-                        firstName.Text = reader["firstName"].ToString();
-                        lastName.Text = reader["lastName"].ToString();
-                        email.Text = reader["email"].ToString();
-                        bool status1 = Convert.ToBoolean(reader["status"]);
-                        status.Checked = status1;
-                    }
-
-                    reader.Close();
+                    // Populate controls with user data for editing
+                    accountNo.Text = reader["accountNo"].ToString();
+                    firstName.Text = reader["firstName"].ToString();
+                    lastName.Text = reader["lastName"].ToString();
+                    email.Text = reader["email"].ToString();
+                    bool status1 = Convert.ToBoolean(reader["status"]);
+                    status.Checked = status1;
                 }
+                reader.Close();
             }
             else
             {
@@ -52,9 +49,10 @@ public partial class EditUser : System.Web.UI.Page
     {
         int userID = Convert.ToInt32(Session["EditUser"]);
 
-        string query = "UPDATE [Table] SET firstName = @firstName, lastName = @lastName, email = @email, status = @status WHERE id = @userID";
+        string query = "UPDATE [Table] SET firstName = @firstName, lastName = @lastName, email = @email, status = @status WHERE Id = @id";
         SqlConnection con = new SqlConnection(connectionString);
         SqlCommand cmd = new SqlCommand(query, con);
+        cmd.Parameters.AddWithValue("@id", userID);
         cmd.Parameters.AddWithValue("@firstName", firstName.Text);
         cmd.Parameters.AddWithValue("@lastName", lastName.Text);
         cmd.Parameters.AddWithValue("@email", email.Text);
@@ -64,6 +62,10 @@ public partial class EditUser : System.Web.UI.Page
         int rowAffected = cmd.ExecuteNonQuery();
         con.Close();
 
+        if (rowAffected > 0)
+        {
+            Response.Redirect("adminHome.aspx");
+        }
     }
     protected void Button2_Click(object sender, EventArgs e)
     {
