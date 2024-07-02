@@ -8,9 +8,9 @@ using System.Web.UI.WebControls;
 
 public partial class EditUser : System.Web.UI.Page
 {
+    string connectionString = "Data Source=AMSBH04\\SQLEXPRESS;Initial Catalog=bank;Integrated Security=True;Encrypt=False;TrustServerCertificate=True";
     protected void Page_Load(object sender, EventArgs e)
     {
-        string connectionString = "Data Source=AMSBH04\\SQLEXPRESS;Initial Catalog=bank;Integrated Security=True;Encrypt=False;TrustServerCertificate=True";
 
         if (!IsPostBack)
         {
@@ -43,7 +43,6 @@ public partial class EditUser : System.Web.UI.Page
             }
             else
             {
-                // Handle case where session is null (e.g., redirect to error page)
                 Response.Redirect("adminHome.aspx");
             }
         }
@@ -51,6 +50,19 @@ public partial class EditUser : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
+        int userID = Convert.ToInt32(Session["EditUser"]);
+
+        string query = "UPDATE [Table] SET firstName = @firstName, lastName = @lastName, email = @email, status = @status WHERE id = @userID";
+        SqlConnection con = new SqlConnection(connectionString);
+        SqlCommand cmd = new SqlCommand(query, con);
+        cmd.Parameters.AddWithValue("@firstName", firstName.Text);
+        cmd.Parameters.AddWithValue("@lastName", lastName.Text);
+        cmd.Parameters.AddWithValue("@email", email.Text);
+        cmd.Parameters.AddWithValue("@status", status.Checked);
+
+        con.Open();
+        int rowAffected = cmd.ExecuteNonQuery();
+        con.Close();
 
     }
     protected void Button2_Click(object sender, EventArgs e)
