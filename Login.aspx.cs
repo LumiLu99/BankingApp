@@ -43,7 +43,7 @@ public partial class Login : System.Web.UI.Page
     private bool ValidateUser(string username, string password)
     {
         hookUp = new SqlConnection("Server=LAPTOP-11MN0H02\\SQLEXPRESS;Database=BankingApp;Integrated Security=True");
-        sql = "SELECT customerName, customerUsername, customerPassword, customerBalance FROM dbo.customerDetails WHERE customerUsername = @username AND customerPassword = @password";
+        sql = "SELECT customerName, customerUsername, customerPassword, customerBalance, customerAccount, customerID FROM dbo.customerDetails WHERE customerUsername = @username AND customerPassword = @password";
         sqlCmd = new SqlCommand(sql, hookUp);
         sqlCmd.Parameters.AddWithValue("@username", username);
         sqlCmd.Parameters.AddWithValue("@password", password);
@@ -55,6 +55,8 @@ public partial class Login : System.Web.UI.Page
             string retrievedPassword = reader["customerPassword"].ToString();
             string retrievedName = reader["customerName"].ToString();
             decimal retrievedBalance = Convert.ToDecimal(reader["customerBalance"]);
+            int retrievedAccount = Convert.ToInt32(reader["customerAccount"]);
+            int retrievedID = Convert.ToInt32(reader["customerID"]);
 
             if (retrievedUsername != username || retrievedPassword != password)
             {
@@ -66,6 +68,8 @@ public partial class Login : System.Web.UI.Page
             {
                 Session["CustomerName"] = retrievedName;
                 Session["CustomerBalance"] = retrievedBalance;
+                Session["CustomerAccount"] = retrievedAccount;
+                Session["CustomerID"] = retrievedID;
                 reader.Close();
                 hookUp.Close();
                 return true;

@@ -13,15 +13,19 @@
             <h1>Online Banking</h1>
         <div>
             <span>Welcome 
-            <asp:Label ID="lblName" runat="server"></asp:Label>!</span>
-            <p>Your current balance:
+            <asp:Label ID="lblName" runat="server"></asp:Label>!<br />
+            Your account number:&nbsp;
+            <asp:Label ID="lblAccount" runat="server"></asp:Label>
+            </span>
+            &nbsp;<p>Your current balance: RM
                 <asp:Label ID="lblBalance" runat="server"></asp:Label>
             </p> 
             <ul>
-            <li><a href="PayBills.aspx">Pay Bills</a></li>
+            <li><a href="PayBill.aspx">Pay Bills</a></li>
             <li><a href="Statement.aspx">Statement</a></li>
             <li><a href="TransferMoney.aspx">Transfer Money</a></li>
             </ul>
+            <asp:HiddenField runat="server" ID="hdfCustomerID" />
         </div>
     </form>
 </body>
