@@ -17,7 +17,7 @@ public partial class adminHome : System.Web.UI.Page
             PopulateGridView();
         }
     }
-
+    //Generate data table from SQL
     private void PopulateGridView()
     {
         string query = "SELECT * FROM [Table]";
@@ -31,7 +31,20 @@ public partial class adminHome : System.Web.UI.Page
         userTable.DataSource = dt;
         userTable.DataBind();
     }
+    //Convert int in "status" into string by substitude the int with string during GridView rendering
+    protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            Label statusLabel = e.Row.FindControl("lblStatus") as Label;
 
+            if (statusLabel != null && statusLabel.Text == "1")
+            {
+                statusLabel.Text = "Block";
+            }
+            else { statusLabel.Text = "Active"; }
+        }
+    }
     protected void registerUser(object sender, EventArgs e)
     {
         Response.Redirect("register-user.aspx");
@@ -45,6 +58,7 @@ public partial class adminHome : System.Web.UI.Page
     {
         userTable.PageIndex = e.NewPageIndex;
     }
+    //Search for value in database
     private void searchUser()
     {
         string searchtxt = search.Text.Trim();
@@ -63,6 +77,7 @@ public partial class adminHome : System.Web.UI.Page
         userTable.DataSource = dt;
         userTable.DataBind();
     }
+    //passing the value with session to edit page
     protected void editButton(object sender, EventArgs e)
     {
         Button userEdit = (Button)sender;
