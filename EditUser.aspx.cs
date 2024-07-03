@@ -85,5 +85,7 @@ public partial class EditUser : System.Web.UI.Page
         con.Open();
         cmd.ExecuteNonQuery();
         con.Close();
+
+        Label1.Text = "Password Reset!";
     }
 }
