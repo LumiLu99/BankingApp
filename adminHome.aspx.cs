@@ -14,6 +14,10 @@ public partial class adminHome : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+            if (Session["LoggedIn"] == null || !(bool)Session["LoggedIn"])
+            {
+                Response.Redirect("admin.aspx");
+            }
             PopulateGridView();
         }
     }

@@ -32,6 +32,7 @@ public partial class admin : System.Web.UI.Page
 
         if (count > 0)
         {
+            Session["LoggedIn"] = true;
             Response.Redirect("adminHome.aspx");
         }
         else
