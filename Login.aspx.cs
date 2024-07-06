@@ -44,6 +44,10 @@ public partial class Login : System.Web.UI.Page
     {
         hookUp = new SqlConnection("Server=LAPTOP-11MN0H02\\SQLEXPRESS;Database=BankingApp;Integrated Security=True");
         sql = "SELECT customerName, customerUsername, customerPassword, customerBalance, customerAccount, customerID FROM dbo.customerDetails WHERE customerUsername = @username AND customerPassword = @password";
+
+        /*SymmetricEncryption en = new SymmetricEncryption();
+        string enPass = en.Encrypt(password);*/
+
         sqlCmd = new SqlCommand(sql, hookUp);
         sqlCmd.Parameters.AddWithValue("@username", username);
         sqlCmd.Parameters.AddWithValue("@password", password);
