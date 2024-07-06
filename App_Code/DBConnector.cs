@@ -7,13 +7,14 @@ using System.Web;
 using System.Web.UI.WebControls;
 using System.Web.Providers.Entities;
 
-/// <summary>
-/// Summary description for DBConnector
-/// </summary>
 public class DBConnector
 {
     private string connectionString = "Data Source=AMSBH04\\SQLEXPRESS;Initial Catalog=bank;Integrated Security=True;Encrypt=False;TrustServerCertificate=True";
 
+    public string ConnectionString()
+    {
+        return connectionString;
+    }
     public void BindData(string query, string search, GridView grid)
     {
 
@@ -64,6 +65,33 @@ public class DBConnector
         con.Close();
 
         return count;
+    }
+    public bool searchDatabase(string query, string accountNo, string email, int method)
+    {
+        SqlConnection con = new SqlConnection(connectionString);
+        SqlCommand cmd = new SqlCommand(query, con);
+
+        cmd.Parameters.AddWithValue("@accountNo", Int32.Parse(accountNo));
+        if (email != null)
+        {
+            cmd.Parameters.AddWithValue("@email", email);
+        }
+        if (method == 1)
+        {
+            con.Open();
+            int count = (int)cmd.ExecuteScalar();
+            con.Close();
+
+            return count > 0 ? true : false;
+        }
+        else if (method == 2)
+        {
+            con.Open();
+            object result = cmd.ExecuteScalar();
+
+            return (result == null || result == DBNull.Value) ? true : false;
+        }
+        return false;
     }
 }
 

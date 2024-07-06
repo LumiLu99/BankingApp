@@ -44,6 +44,11 @@
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Email required!" CssClass="text-danger" ControlToValidate="email"></asp:RequiredFieldValidator>
                         </div>
                         <div class="mb-3">
+                            <label class="form-label">Username:</label>
+                            <asp:TextBox ID="TextBox1" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Username required!" CssClass="text-danger" ControlToValidate="TextBox1"></asp:RequiredFieldValidator>
+                        </div>
+                        <div class="mb-3">
                             <label class="form-label">Enter New Password:</label>
                             <asp:TextBox ID="password" CssClass="form-control" TextMode="Password" runat="server"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="passEmpty" runat="server" ErrorMessage="Password required!" CssClass="text-danger" ControlToValidate="password"></asp:RequiredFieldValidator>

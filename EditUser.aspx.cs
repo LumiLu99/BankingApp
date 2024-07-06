@@ -8,7 +8,8 @@ using System.Web.UI.WebControls;
 
 public partial class EditUser : System.Web.UI.Page
 {
-    string connectionString = "Data Source=AMSBH04\\SQLEXPRESS;Initial Catalog=bank;Integrated Security=True;Encrypt=False;TrustServerCertificate=True";
+    DBConnector db = new DBConnector();
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -17,6 +18,7 @@ public partial class EditUser : System.Web.UI.Page
             if (Session["EditUser"] != null)
             {
                 int userID = Convert.ToInt32(Session["EditUser"]);
+                string connectionString = db.ConnectionString();
 
                 string query = "SELECT Id, accountNo, firstName, lastName, status, username, email FROM [Table] WHERE Id = @UserID";
 
@@ -48,6 +50,7 @@ public partial class EditUser : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         int userID = Convert.ToInt32(Session["EditUser"]);
+        string connectionString = db.ConnectionString();
 
         string query = "UPDATE [Table] SET firstName = @firstName, lastName = @lastName, email = @email, status = @status WHERE Id = @id";
         SqlConnection con = new SqlConnection(connectionString);
@@ -75,6 +78,7 @@ public partial class EditUser : System.Web.UI.Page
     protected void resetPassword_Click(object sender, EventArgs e)
     {
         int userID = Convert.ToInt32(Session["EditUser"]);
+        string connectionString = db.ConnectionString();
 
         string query = "UPDATE [Table] SET password = @password WHERE Id = @id";
         SqlConnection con = new SqlConnection(connectionString);

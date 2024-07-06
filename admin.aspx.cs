@@ -13,7 +13,6 @@ public partial class admin : System.Web.UI.Page
     {
 
     }
-
     protected void Submit_Click(object sender, EventArgs e)
     {
         //need change the connectionString and query

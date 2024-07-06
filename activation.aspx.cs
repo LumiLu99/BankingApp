@@ -13,59 +13,33 @@ using System.Security.Cryptography;
 using System.Text;
 public partial class activation : System.Web.UI.Page
 {
-    string connectionString = "Data Source=AMSBH04\\SQLEXPRESS;Initial Catalog=bank;Integrated Security=True;Encrypt=False;TrustServerCertificate=True";
-    
     protected void Page_Load(object sender, EventArgs e)
     {
 
     }
-    protected bool searchDatabase()
-    {
-        string query = "SELECT COUNT(*) FROM [Table] WHERE accountNo = @accountNo AND email = @email";
-
-        SqlConnection con = new SqlConnection(connectionString);
-        SqlCommand cmd = new SqlCommand(query, con);
-
-        cmd.Parameters.AddWithValue("@accountNo", Int32.Parse(accountNo.Text));
-        cmd.Parameters.AddWithValue("@email", email.Text);
-
-        con.Open();
-        int count = (int)cmd.ExecuteScalar();
-        con.Close();
-
-        return count > 0 ? true : false;
-    }
-    protected bool checkPassword()
-    {
-        string query = "SELECT password FROM [Table] WHERE accountNo = @accountNo";
-
-        SqlConnection con = new SqlConnection(connectionString);
-        SqlCommand cmd = new SqlCommand(query, con);
-
-        cmd.Parameters.AddWithValue("@accountNo", Int32.Parse(accountNo.Text));
-
-        con.Open();
-        object result = cmd.ExecuteScalar();
-
-        return (result == null || result == DBNull.Value) ? true : false;
-    }
-
     protected void Submit_Click(object sender, EventArgs e)
     {
-        if (!checkPassword())
+        DBConnector db = new DBConnector();
+
+        string verificationQuery = "SELECT COUNT(*) FROM [Table] WHERE accountNo = @accountNo AND email = @email";
+        string nullPasswordQuery = "SELECT password FROM [Table] WHERE accountNo = @accountNo";
+
+        if (!db.searchDatabase(nullPasswordQuery, accountNo.Text, null, 2)) //Check if password exist in user, if exist user need to contact admin.
         {
             error.Text = "Kindly contact admin to reset password.";
         }
-        else if (searchDatabase() && checkPassword())
+        else if (db.searchDatabase(verificationQuery, accountNo.Text, email.Text, 1))
         {
             SymmetricEncryption en = new SymmetricEncryption();
-            string query = "UPDATE [Table] SET password = @password WHERE accountNo = @accountNo";
+            string queryUpdate = "UPDATE [Table] SET password = @password, username = @username WHERE accountNo = @accountNo";
             string EncryptedPass = en.Encrypt(password.Text);
+            string EncryptedUser = en.Encrypt(TextBox1.Text);
 
-            SqlConnection con = new SqlConnection(connectionString);
-            SqlCommand cmd = new SqlCommand(query, con);
+            SqlConnection con = new SqlConnection(db.ConnectionString());
+            SqlCommand cmd = new SqlCommand(queryUpdate, con);
 
             cmd.Parameters.AddWithValue("@password", EncryptedPass);
+            cmd.Parameters.AddWithValue("@username", EncryptedUser);
             cmd.Parameters.AddWithValue("@accountNo", Int32.Parse(accountNo.Text));
 
             con.Open();
