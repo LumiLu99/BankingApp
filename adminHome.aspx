@@ -57,7 +57,7 @@
                                 </asp:Panel>
                             </div>
                         </div>
-                        <asp:GridView ID="userTable" runat="server" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" class="table-bordered table" OnPageIndexChanging="textchange" EmptyDataText="No User Found" DataKeyNames="id" OnRowDataBound="GridView1_RowDataBound">
+                        <asp:GridView ID="userTable" runat="server" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" class="table-bordered table" OnPageIndexChanging="textchange" DataKeyNames="id" OnRowDataBound="GridView1_RowDataBound">
                             <Columns>
                                 <asp:BoundField DataField="id" HeaderText="ID" />
                                 <asp:BoundField DataField="accountNo" HeaderText="Account No." />
