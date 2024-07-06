@@ -53,7 +53,6 @@ public class DBConnector
     {
         SymmetricEncryption en = new SymmetricEncryption();
         string enPass = en.Encrypt(password);
-
         SqlConnection con = new SqlConnection(connectionString);
         SqlCommand cmd = new SqlCommand(query, con);
 
