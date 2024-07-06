@@ -44,7 +44,7 @@
                 <h2 class="my-5">Add User</h2>
                 <form runat="server" id="addUser">
                     <div class="mb-3 row">
-                        <asp:Label runat="server" ID="accountNoLabel" class="col-sm-2 col-form-label">Account No:</asp:Label>
+                        <asp:Label runat="server" ID="accountNoLabel" class="col-sm-2 col-form-label" >Account No:</asp:Label>
                         <div class="col-sm-8">
                             <asp:TextBox runat="server" ID="accountNo" class="form-control-plaintext" Read="true"></asp:TextBox>
                         </div>
@@ -57,10 +57,10 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <asp:Label runat="server" ID="lastNameLabel" class="col-sm-2 col-form-label">Last Name:</asp:Label>
+                        <asp:Label runat="server" ID="balanceLabel" class="col-sm-2 col-form-label">Initial Balance:</asp:Label>
                         <div class="col-sm-8">
-                            <asp:TextBox runat="server" ID="lastName" class="form-control"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ForeColor="Red" ErrorMessage="Last Name required!" ControlToValidate="lastName"></asp:RequiredFieldValidator>
+                            <asp:TextBox runat="server" ID="balance" class="form-control"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ForeColor="Red" ErrorMessage="Initial Balance required!" ControlToValidate="balance"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="mb-3 row">

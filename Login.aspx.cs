@@ -42,27 +42,28 @@ public partial class Login : System.Web.UI.Page
 
     private bool ValidateUser(string username, string password)
     {
-        hookUp = new SqlConnection("Server=LAPTOP-11MN0H02\\SQLEXPRESS;Database=BankingApp;Integrated Security=True");
+        hookUp = new SqlConnection("Data Source = AMSBH04\\SQLEXPRESS;Initial Catalog=bank;Integrated Security=True;Encrypt=False;TrustServerCertificate=True");
         sql = "SELECT customerName, customerUsername, customerPassword, customerBalance, customerAccount, customerID FROM dbo.customerDetails WHERE customerUsername = @username AND customerPassword = @password";
 
-        /*SymmetricEncryption en = new SymmetricEncryption();
-        string enPass = en.Encrypt(password);*/
+        SymmetricEncryption en = new SymmetricEncryption();
+        string enPass = en.Encrypt(password);
+        string enUser = en.Encrypt(username);
 
         sqlCmd = new SqlCommand(sql, hookUp);
-        sqlCmd.Parameters.AddWithValue("@username", username);
-        sqlCmd.Parameters.AddWithValue("@password", password);
+        sqlCmd.Parameters.AddWithValue("@username", enUser);
+        sqlCmd.Parameters.AddWithValue("@password", enPass);
         hookUp.Open();
         reader = sqlCmd.ExecuteReader();
         if (reader.HasRows && reader.Read())
         {
-            string retrievedUsername = reader["customerUsername"].ToString();
-            string retrievedPassword = reader["customerPassword"].ToString();
+            string retrievedUsername = reader["customerUsername"].ToString().Trim();
+            string retrievedPassword = reader["customerPassword"].ToString().Trim();
             string retrievedName = reader["customerName"].ToString();
             decimal retrievedBalance = Convert.ToDecimal(reader["customerBalance"]);
             int retrievedAccount = Convert.ToInt32(reader["customerAccount"]);
             int retrievedID = Convert.ToInt32(reader["customerID"]);
 
-            if (retrievedUsername != username || retrievedPassword != password)
+            if (retrievedUsername != enUser || retrievedPassword != enPass)
             {
                 reader.Close();
                 hookUp.Close();

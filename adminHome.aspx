@@ -57,12 +57,12 @@
                                 </asp:Panel>
                             </div>
                         </div>
-                        <asp:GridView ID="userTable" runat="server" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" class="table-bordered table" OnPageIndexChanging="textchange" DataKeyNames="id" OnRowDataBound="GridView1_RowDataBound">
+                        <asp:GridView ID="userTable" runat="server" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" class="table-bordered table" OnPageIndexChanging="textchange" EmptyDataText="No Record Found!" DataKeyNames="customerID" OnRowDataBound="GridView1_RowDataBound">
                             <Columns>
-                                <asp:BoundField DataField="id" HeaderText="ID" />
-                                <asp:BoundField DataField="accountNo" HeaderText="Account No." />
-                                <asp:BoundField DataField="firstName" HeaderText="First Name" />
-                                <asp:BoundField DataField="lastName" HeaderText="Last Name" />
+                                <asp:BoundField DataField="customerID" HeaderText="ID" />
+                                <asp:BoundField DataField="customerAccount" HeaderText="Account No." />
+                                <asp:BoundField DataField="customerName" HeaderText="Customer Name" />
+                                <asp:BoundField DataField="customerUsername" HeaderText="Username" />
                                 <asp:TemplateField HeaderText="Status">
                                     <ItemTemplate>
                                         <asp:Label ID="lblStatus" runat="server" Text='<%# Eval("status") %>'></asp:Label>

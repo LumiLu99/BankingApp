@@ -21,8 +21,8 @@ public partial class activation : System.Web.UI.Page
     {
         DBConnector db = new DBConnector();
 
-        string verificationQuery = "SELECT COUNT(*) FROM [Table] WHERE accountNo = @accountNo AND email = @email";
-        string nullPasswordQuery = "SELECT password FROM [Table] WHERE accountNo = @accountNo";
+        string verificationQuery = "SELECT COUNT(*) FROM [customerDetails] WHERE customerAccount = @accountNo AND email = @email";
+        string nullPasswordQuery = "SELECT customerPassword FROM [customerDetails] WHERE customerAccount = @accountNo";
 
         if (!db.searchDatabase(nullPasswordQuery, accountNo.Text, null, 2)) //Check if password exist in user, if exist user need to contact admin.
         {
@@ -31,7 +31,7 @@ public partial class activation : System.Web.UI.Page
         else if (db.searchDatabase(verificationQuery, accountNo.Text, email.Text, 1))
         {
             SymmetricEncryption en = new SymmetricEncryption();
-            string queryUpdate = "UPDATE [Table] SET password = @password, username = @username WHERE accountNo = @accountNo";
+            string queryUpdate = "UPDATE [customerDetails] SET customerPassword = @password, customerUsername = @username WHERE customerAccount = @accountNo";
             string EncryptedPass = en.Encrypt(password.Text);
             string EncryptedUser = en.Encrypt(TextBox1.Text);
 

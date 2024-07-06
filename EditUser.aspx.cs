@@ -20,7 +20,7 @@ public partial class EditUser : System.Web.UI.Page
                 int userID = Convert.ToInt32(Session["EditUser"]);
                 string connectionString = db.ConnectionString();
 
-                string query = "SELECT Id, accountNo, firstName, lastName, status, username, email FROM [Table] WHERE Id = @UserID";
+                string query = "SELECT customerID, customerAccount, customerName, status, customerUsername, email FROM [customerDetails] WHERE customerID = @UserID";
 
                 SqlConnection connection = new SqlConnection(connectionString);
                 SqlCommand command = new SqlCommand(query, connection);
@@ -31,9 +31,9 @@ public partial class EditUser : System.Web.UI.Page
                 if (reader.Read())
                 {
                     // Populate controls with user data for editing
-                    accountNo.Text = reader["accountNo"].ToString();
-                    firstName.Text = reader["firstName"].ToString();
-                    lastName.Text = reader["lastName"].ToString();
+                    accountNo.Text = reader["customerAccount"].ToString();
+                    firstName.Text = reader["customerName"].ToString();
+                    lastName.Text = reader["customerUsername"].ToString();
                     email.Text = reader["email"].ToString();
                     bool status1 = Convert.ToBoolean(reader["status"]);
                     status.Checked = status1;
@@ -52,12 +52,11 @@ public partial class EditUser : System.Web.UI.Page
         int userID = Convert.ToInt32(Session["EditUser"]);
         string connectionString = db.ConnectionString();
 
-        string query = "UPDATE [Table] SET firstName = @firstName, lastName = @lastName, email = @email, status = @status WHERE Id = @id";
+        string query = "UPDATE [customerDetails] SET customerName = @firstName, email = @email, status = @status WHERE customerID = @id";
         SqlConnection con = new SqlConnection(connectionString);
         SqlCommand cmd = new SqlCommand(query, con);
         cmd.Parameters.AddWithValue("@id", userID);
         cmd.Parameters.AddWithValue("@firstName", firstName.Text);
-        cmd.Parameters.AddWithValue("@lastName", lastName.Text);
         cmd.Parameters.AddWithValue("@email", email.Text);
         cmd.Parameters.AddWithValue("@status", status.Checked);
 
@@ -80,7 +79,7 @@ public partial class EditUser : System.Web.UI.Page
         int userID = Convert.ToInt32(Session["EditUser"]);
         string connectionString = db.ConnectionString();
 
-        string query = "UPDATE [Table] SET password = @password WHERE Id = @id";
+        string query = "UPDATE [customerDetails] SET CustomerPassword = @password WHERE customerID = @id";
         SqlConnection con = new SqlConnection(connectionString);
         SqlCommand cmd = new SqlCommand(query, con);
         cmd.Parameters.AddWithValue("@id", userID);

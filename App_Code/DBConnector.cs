@@ -31,7 +31,7 @@ public class DBConnector
             grid.EmptyDataText = "No record found";
         }
     }
-    private DataTable GetData(string query, string searchText)
+    public DataTable GetData(string query, string searchText)
     {
         SqlConnection con = new SqlConnection(connectionString);
         SqlCommand cmd = new SqlCommand(query, con);

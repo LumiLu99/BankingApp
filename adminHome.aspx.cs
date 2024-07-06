@@ -25,8 +25,18 @@ public partial class adminHome : System.Web.UI.Page
     private void PopulateGridView()
     {
         DBConnector db = new DBConnector();
-        string query = "SELECT * FROM [Table]";
-        db.BindData(query, null, userTable);
+        SymmetricEncryption en = new SymmetricEncryption();
+
+        string query = "SELECT * FROM [customerDetails]";
+        DataTable dt = db.GetData(query, null);
+
+        foreach (DataRow dr in dt.Rows) //decrypt of customerUsername Column
+        {
+            dr["customerUsername"] = en.Decrypt(dr["customerUsername"].ToString());
+        }
+
+        userTable.DataSource = dt;
+        userTable.DataBind();
     }
 
     //Search for value in database
@@ -35,7 +45,7 @@ public partial class adminHome : System.Web.UI.Page
         string searchtxt = search.Text.Trim();
 
         DBConnector db = new DBConnector();
-        string query = "SELECT * FROM [Table] WHERE firstName LIKE @search OR lastName LIKE @search OR accountNo LIKE @search OR email LIKE @search";
+        string query = "SELECT * FROM [customerDetails] WHERE customerName LIKE @search OR customerUsername LIKE @search OR customerAccount LIKE @search OR email LIKE @search";
         db.BindData(query, searchtxt, userTable);
     }
 
@@ -68,14 +78,14 @@ public partial class adminHome : System.Web.UI.Page
     {
         searchUser();
     }
-   
+
     //passing the value with session to edit page
     protected void editButton(object sender, EventArgs e)
     {
         Button userEdit = (Button)sender;
         GridViewRow row = (GridViewRow)userEdit.NamingContainer;
         int rowIndex = row.RowIndex;
-        int id = Convert.ToInt32(userTable.DataKeys[rowIndex]["id"]);
+        int id = Convert.ToInt32(userTable.DataKeys[rowIndex]["customerID"]);
 
         Session["EditUser"] = id;
         Response.Redirect("EditUser.aspx");

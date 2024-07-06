@@ -57,10 +57,9 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <asp:Label runat="server" ID="lastNameLabel" class="col-sm-2 col-form-label">Last Name:</asp:Label>
+                        <asp:Label runat="server" ID="lastNameLabel" class="col-sm-2 col-form-label">Username:</asp:Label>
                         <div class="col-sm-8">
-                            <asp:TextBox runat="server" ID="lastName" class="form-control"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ForeColor="Red" ErrorMessage="Last Name required!" ControlToValidate="lastName"></asp:RequiredFieldValidator>
+                            <asp:Label runat="server" ID="lastName" class="form-control-label"></asp:Label>
                         </div>
                     </div>
                     <div class="mb-3 row">
