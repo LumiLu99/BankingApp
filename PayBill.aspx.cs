@@ -51,14 +51,15 @@ public partial class PayBill : System.Web.UI.Page
 
         // Database 
         hookUp = new SqlConnection("Server=LAPTOP-11MN0H02\\SQLEXPRESS;Database=BankingApp;Integrated Security=True");
-        sql = "INSERT INTO dbo.TransactionTable (customerID, payeeName, transactionType, transactionDate, debit)" +
-                       "VALUES (@CustomerID, @PayeeName, @TransactionType, @TransactionDate, @Debit)";
+        sql = "INSERT INTO dbo.TransactionTable (customerID, payeeName, transactionType, transactionDate, debit, balance)" +
+                       "VALUES (@CustomerID, @PayeeName, @TransactionType, @TransactionDate, @Debit, @Balance)";
         sqlCmd = new SqlCommand(sql, hookUp);
         sqlCmd.Parameters.AddWithValue("@CustomerID", customerID);
         sqlCmd.Parameters.AddWithValue("@PayeeName", payeeName);
         sqlCmd.Parameters.AddWithValue("@TransactionType", transactionType);
         sqlCmd.Parameters.AddWithValue("@TransactionDate", transactionDate);
         sqlCmd.Parameters.AddWithValue("@Debit", amountToPay);
+        sqlCmd.Parameters.AddWithValue("@Balance", newBalance);
         hookUp.Open();
         sqlCmd.ExecuteNonQuery();
         hookUp.Close();

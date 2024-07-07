@@ -30,8 +30,11 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
         <p>
-                <asp:Label ID="lblUserError" runat="server" Text="Invalid username or password." CssClass="text-danger mt-2"></asp:Label>
+                <asp:Label ID="lblUserError" runat="server" CssClass="text-danger mt-2"></asp:Label>
             </p>
+        <p>
+            <asp:Label ID="lblUserError1" runat="server" ForeColor="Red"></asp:Label>
+        </p>
     </form>
 
     </body>

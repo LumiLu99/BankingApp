@@ -30,6 +30,12 @@
             Amount:
             <br />
             <asp:TextBox ID="billAmount" runat="server" TextMode="Number"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfvBillAmount" runat="server" ControlToValidate="billAmount"
+                ErrorMessage="Please enter the bill amount" ForeColor="Red"></asp:RequiredFieldValidator>
+            <br />
+            <asp:RegularExpressionValidator ID="revBillAmount" runat="server" ControlToValidate="billAmount"
+                ErrorMessage="Amount must be up to 8 digits and 2 decimal places"
+                ValidationExpression="^\d{1,8}(\.\d{1,2})?$" ForeColor="Red"></asp:RegularExpressionValidator>
             <br />
             <br />
             <asp:HiddenField ID="hdfTransactionDate" runat="server" />
@@ -37,7 +43,7 @@
             <asp:Button ID="btnBill" runat="server" Text="Confirm payment" OnClick="btnBill_Click" />
             &nbsp;<asp:Label ID="lblSuccess" runat="server" Visible="False"></asp:Label>
             <br />
-            <asp:Button ID="backBill" runat="server" OnClick="backBill_Click" Text="Back" />
+            <asp:Button ID="backBill" runat="server" OnClick="backBill_Click" Text="Back" CausesValidation="False"/>
             <br />
         </div>
     </form>

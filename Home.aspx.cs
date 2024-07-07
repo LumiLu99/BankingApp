@@ -20,4 +20,10 @@ public partial class Home : System.Web.UI.Page
         hdfCustomerID.Value = customerID.ToString();
 
     }
+
+    protected void logout_Click(object sender, EventArgs e)
+    {
+        Session.Abandon();
+        Response.Redirect("Login.aspx");
+    }
 }

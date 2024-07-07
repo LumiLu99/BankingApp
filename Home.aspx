@@ -26,6 +26,8 @@
             <li><a href="TransferMoney.aspx">Transfer Money</a></li>
             </ul>
             <asp:HiddenField runat="server" ID="hdfCustomerID" />
+            <br />
+            <asp:Button ID="logout" runat="server" OnClick="logout_Click" Text="Log out" />
         </div>
     </form>
 </body>
