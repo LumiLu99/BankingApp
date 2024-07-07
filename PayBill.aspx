@@ -35,7 +35,7 @@
             <br />
             <asp:RegularExpressionValidator ID="revBillAmount" runat="server" ControlToValidate="billAmount"
                 ErrorMessage="Amount must be up to 8 digits and 2 decimal places"
-                ValidationExpression="^\d{1,8}(\.\d{1,2})?$" ForeColor="Red"></asp:RegularExpressionValidator>
+                ValidationExpression="^(?!0+(\.0*)?$)[1-9]\d{0,7}(\.\d{1,2})?$" ForeColor="Red"></asp:RegularExpressionValidator>
             <br />
             <br />
             <asp:HiddenField ID="hdfTransactionDate" runat="server" />
