@@ -67,7 +67,7 @@ public partial class register_user : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        string query = "INSERT INTO [customerDetails] (customerName, customerAccount, customerBalance, status, email) VALUES (@firstName, @accountNo, @balance, @status, @email)";
+        string query = "INSERT INTO [customerDetails] (customerName, customerAccount, customerBalance, status, email, loginAttempt) VALUES (@firstName, @accountNo, @balance, @status, @email, @attempt)";
         SqlConnection con = new SqlConnection(connectionString);
         SqlCommand cmd = new SqlCommand(query, con);
 
@@ -75,6 +75,7 @@ public partial class register_user : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@firstName", firstName.Text);
         cmd.Parameters.AddWithValue("@balance", Int32.Parse(balance.Text));
         cmd.Parameters.AddWithValue("@status", 0);
+        cmd.Parameters.AddWithValue("@attempt", 0);
         cmd.Parameters.AddWithValue("@email", email.Text);
 
         con.Open();
