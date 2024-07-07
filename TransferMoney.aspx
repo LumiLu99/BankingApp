@@ -36,7 +36,7 @@
         <br />
         <asp:RegularExpressionValidator ID="revAmount" runat="server" ControlToValidate="transferAmt"
         ErrorMessage="Amount must not exceed 8 digits including 2 decimal places"
-        ValidationExpression="^\d{1,8}(\.\d{1,2})?$" ForeColor="Red"></asp:RegularExpressionValidator>
+        ValidationExpression="^(?!0+(\.0*)?$)[1-9]\d{0,7}(\.\d{1,2})?$" ForeColor="Red"></asp:RegularExpressionValidator>
         <br />
         <br />
         <asp:Button ID="BtnTransfer" runat="server" OnClick="BtnTransfer_Click" Text="Confirm Transfer" />
