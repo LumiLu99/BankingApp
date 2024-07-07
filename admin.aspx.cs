@@ -13,26 +13,16 @@ public partial class admin : System.Web.UI.Page
     {
 
     }
-
     protected void Submit_Click(object sender, EventArgs e)
     {
         //need change the connectionString and query
-        string connectionString = "Data Source=AMSBH04\\SQLEXPRESS;Initial Catalog=bank;Integrated Security=True;Encrypt=False;TrustServerCertificate=True";
         string query = "SELECT COUNT(*) FROM admin2 WHERE username = @user AND password = @pass"; 
+        DBConnector db = new DBConnector();
 
-        SqlConnection connect = new SqlConnection(connectionString);
-        SqlCommand cmd = new SqlCommand(query, connect);
-
-        cmd.Parameters.AddWithValue("@user", userId.Text);
-        cmd.Parameters.AddWithValue("@pass", password.Text);
-
-        connect.Open();
-        int count = (int)cmd.ExecuteScalar();
-        connect.Close();
-
-        if (count > 0)
+        if (db.verifyUser(query, userId.Text, password.Text) > 0)
         {
-            Response.Redirect("adminHome.aspx"); //need change the page
+            Session["LoggedIn"] = true;
+            Response.Redirect("adminHome.aspx");
         }
         else
         {

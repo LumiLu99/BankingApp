@@ -40,7 +40,6 @@
     </nav>
     <div class="container">
         <div class="row">
-            <!-- User Management Section -->
             <div class="col">
                 <div class="user-list">
                     <h2 class="my-5">User Management</h2>
@@ -58,20 +57,24 @@
                                 </asp:Panel>
                             </div>
                         </div>
-                        <asp:GridView ID="userTable" runat="server" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" class="table-bordered table" OnPageIndexChanging="textchange" EmptyDataText="No User Found">
+                        <asp:GridView ID="userTable" runat="server" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" class="table-bordered table" OnPageIndexChanging="textchange" EmptyDataText="No Record Found!" DataKeyNames="customerID" OnRowDataBound="GridView1_RowDataBound">
                             <Columns>
-                                <asp:BoundField DataField="id" HeaderText="ID" />
-                                <asp:BoundField DataField="accountNo" HeaderText="Account No." />
-                                <asp:BoundField DataField="firstName" HeaderText="First Name" />
-                                <asp:BoundField DataField="lastName" HeaderText="Last Name" />
-                                <asp:BoundField DataField="status" HeaderText="Status" />
+                                <asp:BoundField DataField="customerID" HeaderText="ID" />
+                                <asp:BoundField DataField="customerAccount" HeaderText="Account No." />
+                                <asp:BoundField DataField="customerName" HeaderText="Customer Name" />
+                                <asp:BoundField DataField="customerUsername" HeaderText="Username" />
+                                <asp:TemplateField HeaderText="Status">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblStatus" runat="server" Text='<%# Eval("status") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Action">
                                     <ItemTemplate>
-                                        <asp:Button ID="userEdit" runat="server" Text="Edit" />
+                                        <asp:Button ID="userEdit" runat="server" Text="Edit" CommandArgument='<%# Container.DataItemIndex %>' OnClick="editButton" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
-                            <PagerSettings Mode="NextPrevious" position="Bottom" PageButtonCount="10"/>
+                            <PagerSettings Mode="NextPrevious" Position="Bottom" PageButtonCount="10" />
                             <PagerStyle CssClass="pagination" />
                         </asp:GridView>
                     </form>

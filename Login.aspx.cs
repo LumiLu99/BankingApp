@@ -42,10 +42,16 @@ public partial class Login : System.Web.UI.Page
 
     private bool ValidateUser(string username, string password)
     {
-        hookUp = new SqlConnection("Server=LAPTOP-11MN0H02\\SQLEXPRESS;Database=BankingApp;Integrated Security=True");
-        sql = "SELECT customerName, customerUsername, customerPassword, customerBalance, customerAccount, customerID, loginAttempt, status FROM dbo.customerDetails WHERE customerUsername = @username";
+        hookUp = new SqlConnection("Data Source = AMSBH04\\SQLEXPRESS;Initial Catalog=bank;Integrated Security=True;Encrypt=False;TrustServerCertificate=True");
+        sql = "SELECT customerName, customerUsername, customerPassword, customerBalance, customerAccount, customerID, loginAttempt, status FROM dbo.customerDetails WHERE customerUsername = @username AND customerPassword = @password;
+
+        SymmetricEncryption en = new SymmetricEncryption();
+        string enPass = en.Encrypt(password);
+        string enUser = en.Encrypt(username);
+
         sqlCmd = new SqlCommand(sql, hookUp);
-        sqlCmd.Parameters.AddWithValue("@username", username);
+        sqlCmd.Parameters.AddWithValue("@username", enUser);
+        sqlCmd.Parameters.AddWithValue("@password", enPass);
         hookUp.Open();
         reader = sqlCmd.ExecuteReader();
         if (reader.HasRows && reader.Read())
@@ -60,9 +66,8 @@ public partial class Login : System.Web.UI.Page
                 lblUserError1.Text = "Your account is blocked. Please contact support for assistance.";
                 return false;
             }
-
-            string retrievedUsername = reader["customerUsername"].ToString();
-            string retrievedPassword = reader["customerPassword"].ToString();
+            string retrievedUsername = reader["customerUsername"].ToString().Trim();
+            string retrievedPassword = reader["customerPassword"].ToString().Trim();
             string retrievedName = reader["customerName"].ToString();
             decimal retrievedBalance = Convert.ToDecimal(reader["customerBalance"]);
             int retrievedAccount = Convert.ToInt32(reader["customerAccount"]);
@@ -70,7 +75,7 @@ public partial class Login : System.Web.UI.Page
 
             reader.Close();
 
-            if (retrievedPassword != password)
+            if (retrievedPassword != enPass)
             {
 
                 // Update login attempts in database

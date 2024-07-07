@@ -14,7 +14,10 @@ public partial class register_user : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        accountNo.Text = AccountNumber().ToString();
+        if (!IsPostBack)
+        {
+            accountNo.Text = AccountNumber().ToString();
+        }
     }
     protected int AccountNumber()
     {
@@ -41,7 +44,7 @@ public partial class register_user : System.Web.UI.Page
     }
     protected bool checkAccountNumber(int number)
     {
-        string query = "SELECT COUNT(*) FROM [Table] WHERE accountNo = @accountNo";
+        string query = "SELECT COUNT(*) FROM [customerDetails] WHERE customerAccount = @accountNo";
         SqlConnection con = new SqlConnection(connectionString);
         SqlCommand cmd = new SqlCommand(query, con);
 
@@ -64,26 +67,26 @@ public partial class register_user : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        string query = "INSERT INTO [Table] (accountNo, firstName, lastName, status, email) VALUES (@accountNo, @firstName, @lastName, @status, @email)";
+        string query = "INSERT INTO [customerDetails] (customerName, customerAccount, customerBalance, status, email) VALUES (@firstName, @accountNo, @balance, @status, @email)";
         SqlConnection con = new SqlConnection(connectionString);
         SqlCommand cmd = new SqlCommand(query, con);
 
         cmd.Parameters.AddWithValue("@accountNo", accountNo.Text);
         cmd.Parameters.AddWithValue("@firstName", firstName.Text);
-        cmd.Parameters.AddWithValue("@lastName", lastName.Text);
+        cmd.Parameters.AddWithValue("@balance", Int32.Parse(balance.Text));
         cmd.Parameters.AddWithValue("@status", 0);
         cmd.Parameters.AddWithValue("@email", email.Text);
 
-        con.Open() ;
+        con.Open();
         cmd.ExecuteNonQuery();
-        con.Close() ;
+        con.Close();
 
         firstName.ReadOnly = true;
-        lastName.ReadOnly = true;
+        balance.ReadOnly = true;
         email.ReadOnly = true;
         password.ReadOnly = true;
 
         uploadStatus.Text = "Done Register!";
-        
+
     }
 }

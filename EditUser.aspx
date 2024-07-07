@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="register-user.aspx.cs" Inherits="register_user" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="EditUser.aspx.cs" Inherits="EditUser" %>
 
 <!DOCTYPE html>
 
@@ -41,10 +41,10 @@
     <div class="container">
         <div class="col-sm-8 offset-sm-2">
             <div class="container">
-                <h2 class="my-5">Add User</h2>
+                <h2 class="my-5">Edit User</h2>
                 <form runat="server" id="addUser">
                     <div class="mb-3 row">
-                        <asp:Label runat="server" ID="accountNoLabel" class="col-sm-2 col-form-label" >Account No:</asp:Label>
+                        <asp:Label runat="server" ID="accountNoLabel" class="col-sm-2 col-form-label">Account No:</asp:Label>
                         <div class="col-sm-8">
                             <asp:TextBox runat="server" ID="accountNo" class="form-control-plaintext" Read="true"></asp:TextBox>
                         </div>
@@ -57,10 +57,9 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <asp:Label runat="server" ID="balanceLabel" class="col-sm-2 col-form-label">Initial Balance:</asp:Label>
+                        <asp:Label runat="server" ID="lastNameLabel" class="col-sm-2 col-form-label">Username:</asp:Label>
                         <div class="col-sm-8">
-                            <asp:TextBox runat="server" ID="balance" class="form-control"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ForeColor="Red" ErrorMessage="Initial Balance required!" ControlToValidate="balance"></asp:RequiredFieldValidator>
+                            <asp:Label runat="server" ID="lastName" class="form-control-label"></asp:Label>
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -70,13 +69,11 @@
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ForeColor="Red" ErrorMessage="Email required!" ControlToValidate="email"></asp:RequiredFieldValidator>
                         </div>
                     </div>
-                    <!--<div class="mb-3 row">
+                    <div class="mb-3 row">
                         <asp:Label runat="server" ID="passwordLabel" class="col-sm-2 col-form-label">Password:</asp:Label>
-                        <div class="col-sm-7">
-                            <asp:TextBox runat="server" ID="password" class="form-control" TextMode="Password"></asp:TextBox>
-                        </div>
-                        <div class="col-sm-1">
-                            <asp:Button runat="server" ID="resetPassword" CssClass="btn btn-danger" Text="Reset" />
+                         <div class="col-sm-3">
+                            <asp:Button runat="server" ID="resetPassword" CssClass="btn btn-danger" Text="Reset" OnClick="resetPassword_Click" />
+                             <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
                         </div>
                     </div>
                     <div class="mb-3 row align-items-center">
@@ -84,7 +81,7 @@
                         <div class="col-sm-8">
                             <asp:CheckBox ID="status" runat="server" />
                         </div>
-                    </div>-->
+                    </div>
                     <div class="mb-3 row">
                         <div class="col-sm-8 offset-sm-2">
                             <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary" Style="margin-right: 10px" Text="Save" OnClick="Button1_Click" /><asp:Button ID="Button2" CssClass="btn btn-danger" runat="server" CausesValidation="false" Text="Back" OnClick="Button2_Click" />
