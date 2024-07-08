@@ -37,6 +37,10 @@ public partial class Statement : System.Web.UI.Page
     }
     protected void BackButton_Click(object sender, EventArgs e)
     {
+        Session["CustomerName"] = lblName.Text;
+        Session["CustomerBalance"] = Decimal.Parse(lblBalance.Text);
+        Session["CustomerAccount"] = Int32.Parse(lblAccount.Text);
+        Session["CustomerID"] = Int32.Parse(hdfCustomerID.Value);
         Response.Redirect("Home.aspx");
     }
 }

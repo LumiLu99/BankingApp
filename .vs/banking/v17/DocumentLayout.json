@@ -3,36 +3,46 @@
   "WorkspaceRootPath": "C:\\Users\\Administrator\\source\\repos\\BankingApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|c:\\users\\administrator\\source\\repos\\bankingapp\\statement.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|solutionrelative:statement.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|c:\\users\\administrator\\source\\repos\\bankingapp\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|solutionrelative:login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|c:\\users\\administrator\\source\\repos\\bankingapp\\paybill.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|solutionrelative:paybill.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|c:\\users\\administrator\\source\\repos\\bankingapp\\home.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|solutionrelative:home.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|c:\\users\\administrator\\source\\repos\\bankingapp\\statement.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|solutionrelative:statement.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|c:\\users\\administrator\\source\\repos\\bankingapp\\home.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|solutionrelative:home.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|c:\\users\\administrator\\source\\repos\\bankingapp\\statement.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|solutionrelative:statement.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|c:\\users\\administrator\\source\\repos\\bankingapp\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|solutionrelative:login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|c:\\users\\administrator\\source\\repos\\bankingapp\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|c:\\users\\administrator\\source\\repos\\bankingapp\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|solutionrelative:login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|c:\\users\\administrator\\source\\repos\\bankingapp\\app_code\\dbconnector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|solutionrelative:app_code\\dbconnector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|c:\\users\\administrator\\source\\repos\\bankingapp\\adminhome.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|solutionrelative:adminhome.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|c:\\users\\administrator\\source\\repos\\bankingapp\\adminhome.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|solutionrelative:adminhome.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|c:\\users\\administrator\\source\\repos\\bankingapp\\home.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|solutionrelative:home.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|c:\\users\\administrator\\source\\repos\\bankingapp\\statement.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|solutionrelative:statement.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/intidemo.database.windows.net/bankApp/darren/SqlTable/dbo.TransactionTable.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/intidemo.database.windows.net/bankApp/darren/SqlTable/dbo.customerDetails.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|c:\\users\\administrator\\source\\repos\\bankingapp\\paybill.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{741F3D8D-7A3A-412D-9DF6-25CCE31E154A}|C:\\Users\\Administrator\\source\\repos\\BankingApp|solutionrelative:paybill.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +52,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 91,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -57,8 +67,25 @@
               "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
+              "Title": "Login.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\BankingApp\\Login.aspx.cs",
+              "RelativeDocumentMoniker": "Login.aspx.cs",
+              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\BankingApp\\Login.aspx.cs",
+              "RelativeToolTip": "Login.aspx.cs",
+              "ViewState": "AQIAAGQAAAAAAAAAAAAgwGwAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T12:31:12.888Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Login.aspx",
               "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\BankingApp\\Login.aspx",
               "RelativeDocumentMoniker": "Login.aspx",
@@ -66,25 +93,51 @@
               "RelativeToolTip": "Login.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-07-08T11:57:48.567Z",
+              "WhenOpened": "2024-07-08T12:31:11.083Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Home.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\BankingApp\\Home.aspx.cs",
-              "RelativeDocumentMoniker": "Home.aspx.cs",
-              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\BankingApp\\Home.aspx.cs",
-              "RelativeToolTip": "Home.aspx.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAsAAAA+AAAA",
+              "Title": "adminHome.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\BankingApp\\adminHome.aspx.cs",
+              "RelativeDocumentMoniker": "adminHome.aspx.cs",
+              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\BankingApp\\adminHome.aspx.cs",
+              "RelativeToolTip": "adminHome.aspx.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-08T11:37:30.32Z",
+              "WhenOpened": "2024-07-08T12:29:45.064Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
+              "Title": "adminHome.aspx",
+              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\BankingApp\\adminHome.aspx",
+              "RelativeDocumentMoniker": "adminHome.aspx",
+              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\BankingApp\\adminHome.aspx",
+              "RelativeToolTip": "adminHome.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-07-08T12:29:43.666Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Home.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\BankingApp\\Home.aspx.cs",
+              "RelativeDocumentMoniker": "Home.aspx.cs",
+              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\BankingApp\\Home.aspx.cs*",
+              "RelativeToolTip": "Home.aspx.cs*",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAoAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T12:29:07.833Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Home.aspx",
               "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\BankingApp\\Home.aspx",
               "RelativeDocumentMoniker": "Home.aspx",
@@ -92,46 +145,58 @@
               "RelativeToolTip": "Home.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-07-08T11:37:24.889Z",
+              "WhenOpened": "2024-07-08T12:29:06.175Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "dbo.TransactionTable [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/intidemo.database.windows.net/bankApp/darren/SqlTable/dbo.TransactionTable.sql",
+              "ToolTip": "dbo.TransactionTable [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-07-08T12:21:10.748Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Statement.aspx",
-              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\BankingApp\\Statement.aspx",
-              "RelativeDocumentMoniker": "Statement.aspx",
-              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\BankingApp\\Statement.aspx*",
-              "RelativeToolTip": "Statement.aspx*",
-              "LogicalView": "7651a702-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-07-08T11:26:50.963Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "Statement.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\BankingApp\\Statement.aspx.cs",
               "RelativeDocumentMoniker": "Statement.aspx.cs",
               "ToolTip": "C:\\Users\\Administrator\\source\\repos\\BankingApp\\Statement.aspx.cs",
               "RelativeToolTip": "Statement.aspx.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAABMAAAAAAAAAAAAgwCsAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-08T11:26:51.005Z",
+              "WhenOpened": "2024-07-08T12:14:34.854Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
+              "Title": "Statement.aspx",
+              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\BankingApp\\Statement.aspx",
+              "RelativeDocumentMoniker": "Statement.aspx",
+              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\BankingApp\\Statement.aspx",
+              "RelativeToolTip": "Statement.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-07-08T12:14:20.224Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "dbo.customerDetails [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/intidemo.database.windows.net/bankApp/darren/SqlTable/dbo.customerDetails.sql",
+              "ToolTip": "dbo.customerDetails [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-07-08T12:13:24.733Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "PayBill.aspx",
               "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\BankingApp\\PayBill.aspx",
               "RelativeDocumentMoniker": "PayBill.aspx",
@@ -140,32 +205,6 @@
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
               "WhenOpened": "2024-07-08T11:23:29.616Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Web.config",
-              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\BankingApp\\Web.config",
-              "RelativeDocumentMoniker": "Web.config",
-              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\BankingApp\\Web.config",
-              "RelativeToolTip": "Web.config",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-07-08T11:09:53.328Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "DBConnector.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\BankingApp\\App_Code\\DBConnector.cs",
-              "RelativeDocumentMoniker": "App_Code\\DBConnector.cs",
-              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\BankingApp\\App_Code\\DBConnector.cs",
-              "RelativeToolTip": "App_Code\\DBConnector.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAsAAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-08T11:04:09.901Z",
               "EditorCaption": ""
             }
           ]
