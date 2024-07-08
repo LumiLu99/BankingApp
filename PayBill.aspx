@@ -24,7 +24,7 @@
             <br />
             <asp:DropDownList ID="ddlPayee" runat="server" DataSourceID="Payee" DataTextField="payeeName" DataValueField="payeeName">
             </asp:DropDownList>
-            <asp:SqlDataSource ID="Payee" runat="server" ConnectionString="<%$ ConnectionStrings:BankingAppConnectionString %>" ProviderName="<%$ ConnectionStrings:BankingAppConnectionString.ProviderName %>" SelectCommand="SELECT [payeeName] FROM [billPayee]" OnSelecting="Payee_Selecting"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="Payee" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [payeeName] FROM [billPayee]" OnSelecting="Payee_Selecting"></asp:SqlDataSource>
             <br />
             <br />
             Amount:

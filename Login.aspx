@@ -25,6 +25,8 @@
                     <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ControlToValidate="txtPassword" ErrorMessage="Please enter your password." CssClass="text-danger"></asp:RequiredFieldValidator>
                 </div>
                 <asp:Button ID="loginBtn" runat="server" Text="Login" OnClick="loginBtn_Click" CssClass="btn btn-primary w-100"></asp:Button>
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/activation.aspx">Acitvate Account!</asp:HyperLink>
+
             </div>
         </div>
 
