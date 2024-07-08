@@ -13,6 +13,8 @@ public partial class TransferMoney : System.Web.UI.Page
     private string sql;
     private SqlCommand sqlCmd;
     private SqlConnection hookUp;
+    DBConnector db = new DBConnector();
+
     protected void Page_Load(object sender, EventArgs e)
     {
             if (!IsPostBack)
@@ -62,7 +64,7 @@ public partial class TransferMoney : System.Web.UI.Page
         if (accountExists)
         {
             // Insert information into transaction table for current session user 
-            hookUp = new SqlConnection("Server=LAPTOP-11MN0H02\\SQLEXPRESS;Database=BankingApp;Integrated Security=True");
+            hookUp = new SqlConnection(db.ConnectionString());
             sql = "INSERT INTO dbo.TransactionTable (customerID, payeeAccount, transactionType, transactionDate, debit, balance)" +
                            "VALUES (@CustomerID, @PayeeAccount, @TransactionType, @TransactionDate, @Debit, @Balance)";
             sqlCmd = new SqlCommand(sql, hookUp);
@@ -77,7 +79,6 @@ public partial class TransferMoney : System.Web.UI.Page
             hookUp.Close();
 
             // Update receiver's account balance 
-            hookUp = new SqlConnection("Server=LAPTOP-11MN0H02\\SQLEXPRESS;Database=BankingApp;Integrated Security=True");
             sql = "UPDATE dbo.customerDetails SET customerBalance = customerBalance + @Credit WHERE customerAccount = @RecipientAccount;";
             sqlCmd = new SqlCommand(sql, hookUp);
             sqlCmd.Parameters.AddWithValue("@Credit", amountToTransfer);
@@ -101,7 +102,6 @@ public partial class TransferMoney : System.Web.UI.Page
             hookUp.Close();
 
             // Update current session user's account balance 
-            hookUp = new SqlConnection("Server=LAPTOP-11MN0H02\\SQLEXPRESS;Database=BankingApp;Integrated Security=True");
             sql = "UPDATE dbo.customerDetails SET customerBalance = customerBalance - @Debit WHERE customerID = @CustomerID;";
             sqlCmd = new SqlCommand(sql, hookUp);
             sqlCmd.Parameters.AddWithValue("@CustomerID", customerID);
@@ -123,7 +123,7 @@ public partial class TransferMoney : System.Web.UI.Page
     
     private bool CheckPayeeAccountExists(int PayeeAccount) // Check if user entered account exists
     {
-        hookUp = new SqlConnection("Server=LAPTOP-11MN0H02\\SQLEXPRESS;Database=BankingApp;Integrated Security=True");
+        hookUp = new SqlConnection(db.ConnectionString());
         sql = "SELECT COUNT(*) FROM dbo.customerDetails WHERE customerAccount = @PayeeAccount";
         sqlCmd = new SqlCommand(sql, hookUp);
         sqlCmd.Parameters.AddWithValue("@PayeeAccount", PayeeAccount);
@@ -134,7 +134,7 @@ public partial class TransferMoney : System.Web.UI.Page
 
     private int GetRecipientCustomerID(int payeeAccount)
     {
-        hookUp = new SqlConnection("Server=LAPTOP-11MN0H02\\SQLEXPRESS;Database=BankingApp;Integrated Security=True");
+        hookUp = new SqlConnection(db.ConnectionString());
         sql = "SELECT customerID FROM dbo.customerDetails WHERE customerAccount = @PayeeAccount";
         sqlCmd = new SqlCommand(sql, hookUp);
         sqlCmd.Parameters.AddWithValue("@PayeeAccount", payeeAccount);
@@ -146,7 +146,7 @@ public partial class TransferMoney : System.Web.UI.Page
 
     private decimal GetCurrentBalance(int recipientAccount)
     {
-        hookUp = new SqlConnection("Server=LAPTOP-11MN0H02\\SQLEXPRESS;Database=BankingApp;Integrated Security=True");
+        hookUp = new SqlConnection(db.ConnectionString());
         sql = "SELECT customerBalance FROM dbo.customerDetails WHERE customerAccount = @RecipientAccount";
         sqlCmd = new SqlCommand(sql, hookUp);
         sqlCmd.Parameters.AddWithValue("@RecipientAccount", recipientAccount);

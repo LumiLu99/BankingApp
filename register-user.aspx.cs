@@ -10,7 +10,7 @@ using System.ServiceModel.Configuration;
 
 public partial class register_user : System.Web.UI.Page
 {
-    string connectionString = "Data Source=AMSBH04\\SQLEXPRESS;Initial Catalog=bank;Integrated Security=True;Encrypt=False;TrustServerCertificate=True";
+    string connectionString = "Server=tcp:intidemo.database.windows.net,1433;Initial Catalog=bankApp;Persist Security Info=False;User ID=darren;Password=123456Abc;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
     protected void Page_Load(object sender, EventArgs e)
     {

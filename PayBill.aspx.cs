@@ -11,6 +11,8 @@ public partial class PayBill : System.Web.UI.Page
     private string sql;
     private SqlCommand sqlCmd;
     private SqlConnection hookUp;
+
+    DBConnector db = new DBConnector();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -39,6 +41,7 @@ public partial class PayBill : System.Web.UI.Page
 
     protected void btnBill_Click(object sender, EventArgs e)
     {
+        hookUp = new SqlConnection(db.ConnectionString());
         //Retrieve session variables customer input
         int customerID = int.Parse(hdfCustomerID.Value);
         decimal amountToPay = decimal.Parse(billAmount.Text);
@@ -50,7 +53,6 @@ public partial class PayBill : System.Web.UI.Page
         decimal newBalance = customerBalance - amountToPay;
 
         // Database 
-        hookUp = new SqlConnection("Server=LAPTOP-11MN0H02\\SQLEXPRESS;Database=BankingApp;Integrated Security=True");
         sql = "INSERT INTO dbo.TransactionTable (customerID, payeeName, transactionType, transactionDate, debit, balance)" +
                        "VALUES (@CustomerID, @PayeeName, @TransactionType, @TransactionDate, @Debit, @Balance)";
         sqlCmd = new SqlCommand(sql, hookUp);
@@ -64,7 +66,6 @@ public partial class PayBill : System.Web.UI.Page
         sqlCmd.ExecuteNonQuery();
         hookUp.Close();
 
-        hookUp = new SqlConnection("Server=LAPTOP-11MN0H02\\SQLEXPRESS;Database=BankingApp;Integrated Security=True");
         sql = "UPDATE dbo.customerDetails SET customerBalance = customerBalance - @Debit WHERE customerID = @CustomerID;";
         sqlCmd = new SqlCommand(sql, hookUp);
         sqlCmd.Parameters.AddWithValue("@CustomerID", customerID);

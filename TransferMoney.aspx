@@ -26,7 +26,7 @@
         <asp:RequiredFieldValidator ID="rfvAccNum" runat="server" ControlToValidate="accNumber" ErrorMessage="Please insert the account number" ForeColor="Red"></asp:RequiredFieldValidator>
         <br />
         <asp:RegularExpressionValidator ID="revAccNum" runat="server" ControlToValidate="accNumber"
-        ErrorMessage="Account number must be a 7-digit number" ValidationExpression="^\d{7}$"
+        ErrorMessage="Account number must be a 8-digit number" ValidationExpression="^\d{8}$"
         ForeColor="Red"></asp:RegularExpressionValidator>
         <br />
         Amount:<br />
