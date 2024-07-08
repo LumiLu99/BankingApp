@@ -43,7 +43,7 @@ public partial class Login : System.Web.UI.Page
     private bool ValidateUser(string username, string password)
     {
         hookUp = new SqlConnection("Data Source = AMSBH04\\SQLEXPRESS;Initial Catalog=bank;Integrated Security=True;Encrypt=False;TrustServerCertificate=True");
-        sql = "SELECT customerName, customerUsername, customerPassword, customerBalance, customerAccount, customerID, loginAttempt, status FROM dbo.customerDetails WHERE customerUsername = @username AND customerPassword = @password;
+        sql = "SELECT customerName, customerUsername, customerPassword, customerBalance, customerAccount, customerID, loginAttempt, status FROM dbo.customerDetails WHERE customerUsername = @username AND customerPassword = @password";
 
         SymmetricEncryption en = new SymmetricEncryption();
         string enPass = en.Encrypt(password);

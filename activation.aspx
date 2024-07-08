@@ -56,10 +56,11 @@
                         <div class="mb-3">
                             <label class="form-label">Confirm Password:</label>
                             <asp:TextBox ID="ConfirmPassword" CssClass="form-control" TextMode="Password" runat="server"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Confirm Password required!" CssClass="text-danger" ControlToValidate="ConfirmPassword"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Confirm Password required!" CssClass="text-danger" ControlToValidate="ConfirmPassword"></asp:RequiredFieldValidator><br />
+                            <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Password does not match!" CssClass="text-danger" ControlToValidate="ConfirmPassword" ControlToCompare="password"></asp:CompareValidator>
                         </div>
                         <asp:Button ID="Submit" CssClass="btn btn-primary w-100" runat="server" Text="Activate" OnClick="Submit_Click" />
-                        <asp:Button ID="back" CssClass="btn btn-primary w-100 mt-2  " runat="server" CausesValidation="false" Text="Back To Login" OnClick="backClick" />
+                        <asp:Button ID="back" CssClass="btn btn-secondary w-100 mt-2  " runat="server" CausesValidation="false" Text="Back To Login" OnClick="backClick" />
                         <asp:Label ID="error" runat="server" Text="User Not Found!" Visible="false" CssClass="text-danger"></asp:Label>
                     </form>
                 </div>
